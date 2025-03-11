@@ -7,7 +7,8 @@ app = FastAPI()
 current_data = {
     "temperature": 25.0,
     "humidity": 60.0,
-    "rainfall": 5.0
+    "rainfall": 5.0,
+    "cloud": "Partly Cloudy"
 }
 
 # Pydantic model for the JSON data
@@ -15,6 +16,7 @@ class WeatherData(BaseModel):
     temperature: float
     humidity: float
     rainfall: float
+    cloud: str
 
 # GET endpoint to retrieve the current weather data
 @app.get("/api/weather", response_model=WeatherData)

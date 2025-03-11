@@ -17,12 +17,12 @@ class WeatherData(BaseModel):
     rainfall: float
 
 # GET endpoint to retrieve the current weather data
-@app.get("/weather", response_model=WeatherData)
+@app.get("/api/weather", response_model=WeatherData)
 def get_weather():
     return current_data
 
 # PUT endpoint to update the weather data
-@app.put("/weather")
+@app.put("/api/weather")
 def update_weather(data: WeatherData):
     global current_data
     current_data = data.model_dump()
